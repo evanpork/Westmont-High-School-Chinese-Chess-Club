@@ -71,19 +71,19 @@ body {
 .logo-photo {
   width: 260px;
   height: 260px;
-  background-image: url("assets/main-icon.jpg");
+  background-image: url("assets/main-icon.png");
   background-size: cover;
   background-position: center;
   border-radius: 50%;
   border: 3px solid #FFD700;
-  box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+  box-shadow: 0 0 25px rgba(255, 215, 0, 0.5);
   margin: 0 auto;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .logo-photo:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+  box-shadow: 0 0 35px rgba(255, 215, 0, 0.6);
 }
 
 .logo-photo.small {
@@ -112,7 +112,7 @@ h1 {
   padding-top: 11rem;
   padding-left: 2rem;
   padding-right: 2rem;
-  padding-bottom: 6rem; /* prevents overlap with footer */
+  padding-bottom: 6rem;
   max-width: 950px;
   margin: 0 auto;
   text-align: center;
@@ -221,6 +221,60 @@ h1 {
   text-shadow: 0 0 10px #FFD700;
 }
 
+/* ==== GALLERY SECTION ==== */
+.gallery-section {
+  text-align: center;
+  margin-top: 4rem;
+  padding: 2rem;
+  background: rgba(0, 0, 0, 0.5);
+  border-top: 2px solid rgba(255, 215, 0, 0.4);
+  border-bottom: 2px solid rgba(255, 215, 0, 0.4);
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+}
+
+.gallery-section h2 {
+  font-family: 'Kaushan Script', cursive;
+  color: #FFD700;
+  font-size: 2rem;
+  text-shadow: 0 0 10px #b96a00;
+  margin-bottom: 0.5rem;
+}
+
+.gallery-text {
+  color: #fff;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.gallery img {
+  width: 260px;
+  height: 190px;
+  object-fit: cover;
+  border: 2px solid #FFD700;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease, box-shadow 0.3s ease;
+}
+
+.gallery img.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(255, 215, 0, 0.5);
+}
+
 /* ==== FOOTER ==== */
 footer {
   text-align: center;
@@ -270,5 +324,10 @@ footer {
   .content {
     padding-top: 13rem;
     padding-bottom: 7rem;
+  }
+
+  .gallery img {
+    width: 90%;
+    height: auto;
   }
 }
