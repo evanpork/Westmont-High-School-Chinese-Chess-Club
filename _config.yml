@@ -1,0 +1,10 @@
+# --- GitHub Pages + Jekyll configuration ---
+title: Westmont Chinese Chess Club
+description: Official website of the Westmont High School Chinese Chess Club
+url: "https://whsccc.org"
+theme: null  # disable default theme
+markdown: kramdown
+plugins: []
+
+# Enable clean URLs
+permalink: pretty
