@@ -13,7 +13,7 @@ body {
   image-rendering: -webkit-optimize-contrast;
   image-rendering: crisp-edges;
 
-  /* Flex layout ensures footer stays at bottom */
+  /* Flex layout for consistent vertical structure */
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -123,11 +123,11 @@ h1 {
 
 /* ==== CONTENT ==== */
 .content {
-  flex: 1; /* ensures content pushes footer to bottom */
+  flex: 1;
   padding-top: 11rem;
   padding-left: 2rem;
   padding-right: 2rem;
-  padding-bottom: 2rem;
+  padding-bottom: 6rem; /* Prevents overlap with fixed footer */
   max-width: 950px;
   margin: 0 auto;
   text-align: center;
@@ -212,7 +212,7 @@ h1 {
   text-shadow: 0 0 10px #FFD700;
 }
 
-/* ==== FOOTER ==== */
+/* ==== FOOTER (FLUSH AT BOTTOM) ==== */
 footer {
   text-align: center;
   padding: 1rem;
@@ -222,6 +222,12 @@ footer {
   border-top: 2px solid gold;
   margin: 0;
   width: 100%;
+  position: fixed;  /* Always at bottom */
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: auto;
+  z-index: 5;
 }
 
 /* ==== ANIMATIONS ==== */
@@ -247,11 +253,14 @@ footer {
     height: auto;
     padding: 1rem;
   }
+
   .nav-links {
     flex-wrap: wrap;
     gap: 1rem;
   }
+
   .content {
     padding-top: 13rem;
+    padding-bottom: 7rem; /* extra room for fixed footer on mobile */
   }
 }
