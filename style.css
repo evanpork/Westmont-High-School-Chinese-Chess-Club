@@ -1,4 +1,10 @@
-html, body { margin: 0; padding: 0; height: 100%; overflow-x: hidden; }
+/* ==== GLOBAL ==== */
+html, body { 
+  margin: 0; 
+  padding: 0; 
+  height: 100%; 
+  overflow-x: hidden; 
+}
 
 body {
   font-family: 'Open Sans', sans-serif;
@@ -8,7 +14,7 @@ body {
   image-rendering: crisp-edges;
 }
 
-/* NAVBAR */
+/* ==== NAVBAR ==== */
 .navbar {
   display: flex;
   align-items: center;
@@ -21,6 +27,12 @@ body {
   z-index: 10;
   border-bottom: 2px solid gold;
   height: 70px;
+}
+
+.logo-img {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
 }
 
 .logo-text {
@@ -49,7 +61,7 @@ body {
   text-shadow: 0 0 10px #FFD700;
 }
 
-/* HOME */
+/* ==== HOME ==== */
 .home {
   height: 100vh;
   display: flex;
@@ -61,11 +73,7 @@ body {
 }
 
 .logo-big {
-  font-family: 'Kaushan Script', cursive;
-  font-size: 8rem;
-  color: #FFD700;
-  text-shadow: 0 0 20px #8B0000;
-  animation: glowPulse 5s ease-in-out infinite;
+  margin-bottom: 1rem;
 }
 
 h1 {
@@ -76,18 +84,48 @@ h1 {
   text-shadow: 0 0 8px #FFD700;
 }
 
-.tagline { color: #FFD700; font-size: 1.2rem; }
+.tagline {
+  color: #FFD700;
+  font-size: 1.2rem;
+}
 
-/* CONTENT */
+/* ==== MAIN ICON (replaces cannon) ==== */
+.logo-photo {
+  width: 180px;
+  height: 180px;
+  background-image: url("assets/main-icon.jpg");
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+  border: 3px solid #FFD700;   /* gold border like other elements */
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+  margin: 0 auto;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.logo-photo:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+}
+
+.logo-photo.small {
+  width: 50px;
+  height: 50px;
+  border-width: 2px;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+}
+
+/* ==== CONTENT ==== */
 .content {
   padding-top: 11rem;
   padding-left: 2rem;
   padding-right: 2rem;
-  padding-bottom: 3rem;
+  padding-bottom: 1rem; /* flush bottom */
   max-width: 950px;
-  margin: auto;
+  margin: 0 auto;
   text-align: center;
   box-sizing: border-box;
+  min-height: calc(100vh - 120px); /* keeps footer at bottom */
 }
 
 .section-box {
@@ -112,7 +150,7 @@ h1 {
   text-shadow: 0 0 10px #b96a00;
 }
 
-/* OFFICERS */
+/* ==== OFFICERS ==== */
 .officer-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -150,9 +188,25 @@ h1 {
   color: #FFD700;
 }
 
-.officer-card p { margin: 0; font-size: 0.95rem; }
+.officer-card p {
+  margin: 0;
+  font-size: 0.95rem;
+}
 
-/* FOOTER */
+/* ==== CONTACT PAGE GOLD LINKS ==== */
+.contact-page .section-box a {
+  color: #FFD700;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.contact-page .section-box a:hover {
+  color: #FFFFFF;
+  text-shadow: 0 0 10px #FFD700;
+}
+
+/* ==== FOOTER ==== */
 footer {
   text-align: center;
   padding: 1rem;
@@ -162,29 +216,34 @@ footer {
   border-top: 2px solid gold;
 }
 
-/* ANIMATIONS */
+/* ==== ANIMATIONS ==== */
 @keyframes glowPulse {
   0%, 100% { text-shadow: 0 0 12px #FFD700; }
   50% { text-shadow: 0 0 25px #FFD700; }
 }
 
-.fade-in { animation: fadeIn 1.3s ease forwards; opacity: 0; }
-@keyframes fadeIn { to { opacity: 1; } }
+.fade-in {
+  animation: fadeIn 1.3s ease forwards;
+  opacity: 0;
+}
 
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+/* ==== RESPONSIVE ==== */
 @media (max-width: 700px) {
-  .navbar { flex-direction: column; align-items: flex-start; height: auto; padding: 1rem; }
-  .nav-links { flex-wrap: wrap; gap: 1rem; }
-  .content { padding-top: 13rem; }
-}
-/* ==== CONTACT PAGE GOLD LINKS ==== */
-.contact-page .section-box a {
-  color: #FFD700;              /* gold links */
-  text-decoration: none;
-  font-weight: 600;
-  transition: all 0.3s ease;
-}
-
-.contact-page .section-box a:hover {
-  color: #FFFFFF;              /* turns white on hover */
-  text-shadow: 0 0 10px #FFD700;
+  .navbar { 
+    flex-direction: column; 
+    align-items: flex-start; 
+    height: auto; 
+    padding: 1rem; 
+  }
+  .nav-links { 
+    flex-wrap: wrap; 
+    gap: 1rem; 
+  }
+  .content { 
+    padding-top: 13rem; 
+  }
 }
