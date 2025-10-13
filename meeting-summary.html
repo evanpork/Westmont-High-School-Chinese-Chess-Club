@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meeting Summary | Westmont Chinese Chess Club</title>
+  <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" href="assets/main-icon.png" />
+  <script src="script.js" defer></script>
+</head>
+
+<body class="fade-in">
+  <nav class="navbar">
+    <a href="index.html" class="logo-img" aria-label="Home">
+      <div class="logo-photo small"></div>
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="calendar.html">Calendar</a>
+      <a href="contact.html">Contact</a>
+      <a href="meeting-summary.html" class="active">Meeting Summary</a>
+    </div>
+  </nav>
+
+  <main class="content">
+    <div class="section-box">
+      <h2>Weekly Meeting Summaries</h2>
+      <p>Each week, we post highlights, lessons, and updates from our meetings. Check back often!</p>
+
+      <!-- Live Google Doc -->
+      <iframe
+        id="meetingDoc"
+        src="https://docs.google.com/document/d/e/2PACX-1vQi7-bYbdNi8Ns62M0QYZgisUa4HnxXBvHrqW5vO2ecVEgsn6CDVVfaXfEe-uaPvzMHT-9Ftzo3KR2e/pub?embedded=true"
+        width="100%" height="800"
+        style="border:2px solid rgba(255,215,0,0.6);
+               border-radius:12px;
+               box-shadow:0 0 20px rgba(255,215,0,0.2);">
+      </iframe>
+
+      <!-- Last-updated display -->
+      <p id="last-updated"
+         style="color:#FFD700;margin-top:1rem;font-size:0.9rem;">
+         Loading last update…
+      </p>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 Westmont High School Chinese Chess Club</p>
+  </footer>
+
+  <script>
+    /*
+      Retrieves the real last-modified time of the published Google Doc
+      and displays it in local time.
+    */
+    async function updateLastModified() {
+      const fileId = "2PACX-1vQi7-bYbdNi8Ns62M0QYZgisUa4HnxXBvHrqW5vO2ecVEgsn6CDVVfaXfEe-uaPvzMHT-9Ftzo3KR2e";
+      const apiUrl = `https://docs.google.com/document/d/e/${fileId}/pub?embedded=true`;
+
+      try {
+        const res = await fetch(apiUrl, { cache: "no-store" });
+        const text = await res.text();
+
+        // Google includes "Last updated" in the published HTML footer.
+        const match = text.match(/Last updated\s*([A-Za-z]+\s+\d{1,2},\s+\d{4})/i);
+        const date = match ? match[1] : null;
+
+        const el = document.getElementById("last-updated");
+        if (date) {
+          el.textContent = "Last Updated: " + date;
+        } else {
+          el.textContent = "Last Updated: (unavailable)";
+        }
+      } catch (err) {
+        document.getElementById("last-updated").textContent =
+          "Last Updated: (could not load)";
+        console.error(err);
+      }
+    }
+    updateLastModified();
+  </script>
+</body>
+</html>
