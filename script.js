@@ -1,19 +1,19 @@
-// Smooth fade-out transitions between pages
+// Fade transition between pages
 document.addEventListener('DOMContentLoaded', () => {
-  const anchors = document.querySelectorAll('a');
-  for (let a of anchors) {
-    if (a.hostname === window.location.hostname && !a.target) {
+  document.querySelectorAll('a').forEach(a => {
+    if (a.hostname === location.hostname && !a.target) {
       a.addEventListener('click', e => {
-        if (a.href !== window.location.href) {
+        if (a.href !== location.href) {
           e.preventDefault();
           document.body.classList.add('fade-out');
-          setTimeout(() => window.location = a.href, 800);
+          setTimeout(() => (location = a.href), 800);
         }
       });
     }
-  }
+  });
 });
 
+// Style for fade-out transition
 const style = document.createElement("style");
 style.innerHTML = `
   .fade-out {
@@ -22,3 +22,21 @@ style.innerHTML = `
   }
 `;
 document.head.appendChild(style);
+
+// === Gallery fade-in animation ===
+document.addEventListener("DOMContentLoaded", () => {
+  const fadeItems = document.querySelectorAll(".gallery img");
+
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    },
+    { threshold: 0.2 }
+  );
+
+  fadeItems.forEach(item => observer.observe(item));
+});
