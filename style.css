@@ -12,8 +12,6 @@ body {
   background: url("assets/background.jpg") center center / cover fixed no-repeat;
   image-rendering: -webkit-optimize-contrast;
   image-rendering: crisp-edges;
-
-  /* Flex layout for consistent vertical structure */
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -37,14 +35,6 @@ body {
 .logo-img {
   display: flex;
   align-items: center;
-  text-decoration: none;
-}
-
-.logo-text {
-  font-family: 'Kaushan Script', cursive;
-  font-size: 2rem;
-  color: #FFD700;
-  text-shadow: 0 0 10px #b96a00;
   text-decoration: none;
 }
 
@@ -78,28 +68,10 @@ body {
   padding-top: 3rem;
 }
 
-.logo-big {
-  margin-bottom: 1rem;
-}
-
-h1 {
-  font-family: 'Kaushan Script', cursive;
-  font-size: 2.5rem;
-  margin: 0.5rem 0;
-  color: #fff;
-  text-shadow: 0 0 8px #FFD700;
-}
-
-.tagline {
-  color: #FFD700;
-  font-size: 1.2rem;
-}
-
-/* ==== MAIN ICON (replaces cannon) ==== */
 .logo-photo {
   width: 180px;
   height: 180px;
-  background-image: url("assets/main-icon.jpg");
+  background-image: url("assets/main-icon.png");
   background-size: cover;
   background-position: center;
   border-radius: 50%;
@@ -121,13 +93,26 @@ h1 {
   box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
 }
 
+h1 {
+  font-family: 'Kaushan Script', cursive;
+  font-size: 2.5rem;
+  margin: 0.5rem 0;
+  color: #fff;
+  text-shadow: 0 0 8px #FFD700;
+}
+
+.tagline {
+  color: #FFD700;
+  font-size: 1.2rem;
+}
+
 /* ==== CONTENT ==== */
 .content {
   flex: 1;
   padding-top: 11rem;
   padding-left: 2rem;
   padding-right: 2rem;
-  padding-bottom: 6rem; /* Prevents overlap with fixed footer */
+  padding-bottom: 6rem;
   max-width: 950px;
   margin: 0 auto;
   text-align: center;
@@ -154,6 +139,30 @@ h1 {
   color: #FFD700;
   margin-bottom: 0.6rem;
   text-shadow: 0 0 10px #b96a00;
+}
+
+/* ==== CALENDAR ==== */
+.calendar-wrapper {
+  overflow-x: auto;
+  text-align: center;
+}
+
+.calendar-embed {
+  width: 900px;
+  min-width: 900px; /* ensures Google Calendar uses desktop layout */
+  height: 600px;
+  border: 2px solid rgba(255, 215, 0, 0.6);
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+  display: inline-block;
+}
+
+@media (max-width: 900px) {
+  .calendar-embed {
+    width: 100%;
+    min-width: unset;
+    height: 500px;
+  }
 }
 
 /* ==== OFFICERS ==== */
@@ -212,7 +221,7 @@ h1 {
   text-shadow: 0 0 10px #FFD700;
 }
 
-/* ==== FOOTER (FLUSH AT BOTTOM) ==== */
+/* ==== FOOTER ==== */
 footer {
   text-align: center;
   padding: 1rem;
@@ -222,11 +231,10 @@ footer {
   border-top: 2px solid gold;
   margin: 0;
   width: 100%;
-  position: fixed;  /* Always at bottom */
+  position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
-  height: auto;
   z-index: 5;
 }
 
@@ -261,6 +269,6 @@ footer {
 
   .content {
     padding-top: 13rem;
-    padding-bottom: 7rem; /* extra room for fixed footer on mobile */
+    padding-bottom: 7rem;
   }
 }
