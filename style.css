@@ -112,7 +112,7 @@ h1 {
   padding-top: 11rem;
   padding-left: 2rem;
   padding-right: 2rem;
-  padding-bottom: 6rem;
+  padding-bottom: 6rem; /* prevents overlap with footer */
   max-width: 950px;
   margin: 0 auto;
   text-align: center;
@@ -149,7 +149,7 @@ h1 {
 
 .calendar-embed {
   width: 900px;
-  min-width: 900px; /* ensures Google Calendar uses desktop layout */
+  min-width: 900px;
   height: 600px;
   border: 2px solid rgba(255, 215, 0, 0.6);
   border-radius: 12px;
