@@ -97,7 +97,7 @@ h1 {
   background-size: cover;
   background-position: center;
   border-radius: 50%;
-  border: 3px solid #FFD700;   /* gold border like other elements */
+  border: 3px solid #FFD700;
   box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
   margin: 0 auto;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -120,13 +120,17 @@ h1 {
   padding-top: 11rem;
   padding-left: 2rem;
   padding-right: 2rem;
-  padding-bottom: 1rem; /* flush bottom */
+  padding-bottom: 2rem;
   max-width: 950px;
   margin: 0 auto;
   text-align: center;
   box-sizing: border-box;
-  min-height: calc(100vh - 120px); /* keeps footer at bottom */
+  min-height: calc(100vh - 72px - 62px);
 }
+/* Explanation:
+   72px = navbar height (70px + border)
+   62px = footer height (60px + border)
+   This keeps the footer perfectly flush at bottom. */
 
 .section-box {
   background: rgba(0, 0, 0, 0.5);
@@ -214,6 +218,11 @@ footer {
   color: #FFD700;
   background: #8B0000;
   border-top: 2px solid gold;
+  margin: 0;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
 }
 
 /* ==== ANIMATIONS ==== */
