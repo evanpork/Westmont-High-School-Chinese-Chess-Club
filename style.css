@@ -1,9 +1,9 @@
 /* ==== GLOBAL ==== */
-html, body { 
-  margin: 0; 
-  padding: 0; 
-  height: 100%; 
-  overflow-x: hidden; 
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
 }
 
 body {
@@ -12,6 +12,11 @@ body {
   background: url("assets/background.jpg") center center / cover fixed no-repeat;
   image-rendering: -webkit-optimize-contrast;
   image-rendering: crisp-edges;
+
+  /* Flex layout ensures footer stays at bottom */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 /* ==== NAVBAR ==== */
@@ -56,14 +61,15 @@ body {
   transition: all 0.3s ease;
 }
 
-.nav-links a:hover, .nav-links a.active {
+.nav-links a:hover,
+.nav-links a.active {
   color: #fff;
   text-shadow: 0 0 10px #FFD700;
 }
 
 /* ==== HOME ==== */
 .home {
-  height: 100vh;
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -117,6 +123,7 @@ h1 {
 
 /* ==== CONTENT ==== */
 .content {
+  flex: 1; /* ensures content pushes footer to bottom */
   padding-top: 11rem;
   padding-left: 2rem;
   padding-right: 2rem;
@@ -125,12 +132,7 @@ h1 {
   margin: 0 auto;
   text-align: center;
   box-sizing: border-box;
-  min-height: calc(100vh - 72px - 62px);
 }
-/* Explanation:
-   72px = navbar height (70px + border)
-   62px = footer height (60px + border)
-   This keeps the footer perfectly flush at bottom. */
 
 .section-box {
   background: rgba(0, 0, 0, 0.5);
@@ -219,10 +221,7 @@ footer {
   background: #8B0000;
   border-top: 2px solid gold;
   margin: 0;
-  position: relative;
-  bottom: 0;
   width: 100%;
-  height: 60px;
 }
 
 /* ==== ANIMATIONS ==== */
@@ -242,17 +241,17 @@ footer {
 
 /* ==== RESPONSIVE ==== */
 @media (max-width: 700px) {
-  .navbar { 
-    flex-direction: column; 
-    align-items: flex-start; 
-    height: auto; 
-    padding: 1rem; 
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    height: auto;
+    padding: 1rem;
   }
-  .nav-links { 
-    flex-wrap: wrap; 
-    gap: 1rem; 
+  .nav-links {
+    flex-wrap: wrap;
+    gap: 1rem;
   }
-  .content { 
-    padding-top: 13rem; 
+  .content {
+    padding-top: 13rem;
   }
 }
