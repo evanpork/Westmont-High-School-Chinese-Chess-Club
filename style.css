@@ -3,7 +3,6 @@ html, body {
   margin: 0;
   height: 100%;
 }
-
 body {
   font-family: 'Open Sans', sans-serif;
   color: #fff;
@@ -24,24 +23,27 @@ body {
   justify-content:space-between;
   align-items:center;
   position:fixed;
-  top:0;left:0;width:100%;
-  padding:0.8rem 2rem;
+  top:0; left:0; width:100%;
+  padding:0.6rem 2rem;
   background:rgba(0,0,0,0.25);
-  backdrop-filter:blur(6px);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid rgba(255,215,0,0.4);
   z-index:10;
+  height:65px;
+  transition: background 0.3s ease;
 }
-
 .logo-text {
   font-family:'Kaushan Script',cursive;
   font-size:2rem;
   color:#FFD700;
   text-shadow:0 0 10px #b96a00;
+  margin-left:0.5rem;
 }
-
 .nav-links a {
   color:#FFD700;
   text-decoration:none;
   margin:0 1rem;
+  font-size:1.1rem;
   transition:all 0.3s ease;
 }
 .nav-links a:hover,
@@ -80,13 +82,14 @@ h1 {
 
 /* ===== GENERIC CONTENT ===== */
 .content {
-  padding:9rem 2rem 3rem;
+  padding-top: calc(11rem + 20px);
+  padding-left:2rem;
+  padding-right:2rem;
+  padding-bottom:3rem;
   max-width:950px;
   margin:auto;
   text-align:center;
 }
-
-/* gold framed info boxes */
 .section-box {
   background:rgba(255,215,0,0.05);
   border:2px solid rgba(255,215,0,0.4);
@@ -126,7 +129,7 @@ h1 {
   box-shadow:0 0 20px rgba(255,215,0,0.3);
 }
 .officer-photo {
-  width:100px;height:100px;
+  width:100px; height:100px;
   background-color:rgba(255,215,0,0.1);
   background-size:cover;
   background-position:center;
@@ -158,6 +161,15 @@ footer {
   padding:1rem;
   color:#FFD700;
   font-size:0.9rem;
+  background:rgba(0,0,0,0.25);
+  border-top:1px solid rgba(255,215,0,0.4);
+  backdrop-filter:blur(6px);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width:600px) {
+  .content { padding-top:13rem; }
+  .nav-links a { margin:0 0.5rem; font-size:1rem; }
 }
 
 /* ===== ANIMATIONS ===== */
@@ -170,8 +182,5 @@ footer {
   0%,100%{text-shadow:0 0 12px #FFD700;}
   50%{text-shadow:0 0 25px #FFD700;}
 }
-.fade-in {
-  animation:fadeIn 1.3s ease forwards;
-  opacity:0;
-}
-@keyframes fadeIn {to{opacity:1;}}
+.fade-in { animation:fadeIn 1.3s ease forwards; opacity:0; }
+@keyframes fadeIn { to{opacity:1;} }
