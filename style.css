@@ -69,8 +69,8 @@ body {
 }
 
 .logo-photo {
-  width: 180px;
-  height: 180px;
+  width: 260px;
+  height: 260px;
   background-image: url("assets/main-icon.jpg");
   background-size: cover;
   background-position: center;
