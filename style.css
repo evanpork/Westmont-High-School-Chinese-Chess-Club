@@ -176,3 +176,15 @@ footer {
   .nav-links { flex-wrap: wrap; gap: 1rem; }
   .content { padding-top: 13rem; }
 }
+/* ==== CONTACT PAGE GOLD LINKS ==== */
+.contact-page .section-box a {
+  color: #FFD700;              /* gold links */
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.contact-page .section-box a:hover {
+  color: #FFFFFF;              /* turns white on hover */
+  text-shadow: 0 0 10px #FFD700;
+}
