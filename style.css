@@ -1,159 +1,176 @@
-/* ===== VARIABLES ===== */
-:root{
-  --gold: #FFD700;
-  --goldLine: rgba(255,215,0,.4);
-  --nav-h: 65px;                  /* keep this in sync with .navbar height */
-  --content-top: calc(var(--nav-h) + 28px);
+/* ==== GLOBAL ==== */
+html, body { margin: 0; padding: 0; height: 100%; overflow-x: hidden; }
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  color: #fff;
+  background: url("assets/background.jpg") center/cover fixed no-repeat;
 }
 
-/* ===== BASE ===== */
-html, body { margin:0; height:100%; }
-body{
-  font-family:'Open Sans',sans-serif;
-  color:#fff;
-  background: linear-gradient(-45deg,#6b0000,#8b3a00,#b96a00,#f7c65b);
-  background-size:300% 300%;
-  animation:silkFlow 50s ease infinite;
-  overflow-x:hidden;
+/* ==== NAVBAR ==== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #8B0000; /* deep red */
+  padding: 0.6rem 2rem;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+  border-bottom: 2px solid gold;
 }
 
-/* GOLD FRAME as an overlay so it never scrolls or leaves marks */
-html::before{
-  content:"";
-  position:fixed;
-  inset:8px;                      /* distance from window edges */
-  border:3px solid rgba(255,215,0,.75);
-  border-radius:12px;
-  box-shadow:0 0 20px rgba(255,215,0,.35);
-  pointer-events:none;
-  z-index:9999;                   /* always above content + nav */
+.logo-text {
+  font-family: 'Kaushan Script', cursive;
+  font-size: 2rem;
+  color: #FFD700;
+  text-shadow: 0 0 10px #b96a00;
+  text-decoration: none;
 }
 
-/* ===== NAVBAR (glassy) ===== */
-.navbar{
-  position:fixed; top:0; left:0; width:100%;
-  height:var(--nav-h);
-  display:flex; align-items:center; justify-content:space-between;
-  padding:0 .75rem 0 1.25rem;
-  background:rgba(0,0,0,.25);
-  backdrop-filter:blur(8px);
-  border-bottom:1px solid var(--goldLine);
-  z-index:1000;                   /* under the border overlay */
-  transition:background .3s ease;
-}
-.logo-text{
-  font-family:'Kaushan Script',cursive;
-  font-size:2rem; color:var(--gold);
-  text-shadow:0 0 10px #b96a00;
-}
-.nav-links a{
-  color:var(--gold); text-decoration:none;
-  margin:0 1rem; font-size:1.06rem;
-  transition:all .25s ease;
-}
-.nav-links a:hover, .nav-links a.active{
-  color:#fff; text-shadow:0 0 10px var(--gold);
+.nav-links a {
+  color: #FFD700;
+  text-decoration: none;
+  margin: 0 1rem;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
 }
 
-/* darken nav a bit when scrolling (script toggles) */
-.navbar.scrolled{ background:rgba(0,0,0,.45); }
-
-/* ===== HOME ===== */
-.home{
-  min-height:100vh;
-  display:flex; flex-direction:column; align-items:center; justify-content:center;
-  text-align:center;
-  padding: 0 1.25rem;
-}
-.logo-big{
-  font-family:'Kaushan Script',cursive;
-  font-size:8rem; color:var(--gold);
-  text-shadow:0 0 20px #8B0000;
-  animation:glowPulse 5s ease-in-out infinite;
-}
-h1{
-  font-family:'Kaushan Script',cursive;
-  font-size:2.6rem; margin:.4rem 0 .2rem;
-  color:#fff; text-shadow:0 0 8px var(--gold);
-}
-.tagline{ color:var(--gold); font-size:1.15rem; }
-
-/* ===== CONTENT PAGES ===== */
-/* This pushes content below the fixed navbar on ALL pages */
-.content{
-  padding: var(--content-top) 2rem 3rem;
-  max-width:950px; margin:auto; text-align:center;
+.nav-links a:hover, .nav-links a.active {
+  color: #fff;
+  text-shadow: 0 0 10px #FFD700;
 }
 
-/* gold framed info boxes */
-.section-box{
-  background:rgba(255,215,0,.05);
-  border:2px solid var(--goldLine);
-  border-radius:12px;
-  padding:1.5rem;
-  margin:2rem auto;
-  box-shadow:0 0 15px rgba(255,215,0,.15);
-  transition:transform .3s ease, box-shadow .3s ease;
-}
-.section-box:hover{ transform:scale(1.02); box-shadow:0 0 25px rgba(255,215,0,.30); }
-.section-box h2{
-  font-family:'Kaushan Script',cursive;
-  color:var(--gold); margin-bottom:.65rem;
-  text-shadow:0 0 10px #b96a00;
+/* ==== HOME ==== */
+.home {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-top: 3rem;
 }
 
-/* officers with photo spots ready */
-.officer-grid{
-  display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-  gap:1.5rem; margin-top:1.5rem;
-}
-.officer-card{
-  background:rgba(255,215,0,.06);
-  border:2px solid var(--goldLine);
-  border-radius:12px; padding:1rem;
-  transition:transform .3s ease, box-shadow .3s ease;
-}
-.officer-card:hover{ transform:translateY(-5px); box-shadow:0 0 20px rgba(255,215,0,.30); }
-.officer-photo{
-  width:100px; height:100px; margin:0 auto .8rem;
-  background-color:rgba(255,215,0,.10);
-  background-size:cover; background-position:center;
-  border-radius:50%; border:2px solid var(--gold);
-}
-.officer-card h3{ margin:.3rem 0 0; font-size:1.2rem; color:var(--gold); }
-.officer-card p{ margin:0; font-size:.95rem; }
-
-/* calendar iframe frame */
-iframe{
-  width:100%; max-width:800px; border-radius:10px;
-  box-shadow:0 0 15px rgba(255,215,0,.4);
-  border:0;
+.logo-big {
+  font-family: 'Kaushan Script', cursive;
+  font-size: 8rem;
+  color: #FFD700;
+  text-shadow: 0 0 20px #8B0000;
+  animation: glowPulse 5s ease-in-out infinite;
 }
 
-/* ===== FOOTER (glassy) ===== */
-footer{
-  text-align:center; padding:1rem;
-  color:var(--gold); font-size:.9rem;
-  background:rgba(0,0,0,.25);
-  border-top:1px solid var(--goldLine);
-  backdrop-filter:blur(6px);
+h1 {
+  font-family: 'Kaushan Script', cursive;
+  font-size: 2.5rem;
+  margin: 0.5rem 0;
+  color: #fff;
+  text-shadow: 0 0 8px #FFD700;
 }
 
-/* ===== RESPONSIVE ===== */
-@media (max-width:600px){
-  :root{ --content-top: calc(var(--nav-h) + 40px); }
-  .nav-links a{ margin:0 .5rem; font-size:1rem; }
+.tagline {
+  color: #FFD700;
+  font-size: 1.2rem;
 }
 
-/* ===== ANIMATIONS ===== */
-@keyframes silkFlow{
-  0%{background-position:0% 50%}
-  50%{background-position:100% 50%}
-  100%{background-position:0% 50%}
+/* ==== CONTENT ==== */
+.content {
+  padding-top: 8rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-bottom: 3rem;
+  max-width: 950px;
+  margin: auto;
+  text-align: center;
 }
-@keyframes glowPulse{
-  0%,100%{text-shadow:0 0 12px var(--gold)}
-  50%{text-shadow:0 0 25px var(--gold)}
+
+.section-box {
+  background: rgba(0, 0, 0, 0.5);
+  border: 2px solid rgba(255, 215, 0, 0.6);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 2rem auto;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.fade-in{ animation:fadeIn 1.2s ease forwards; opacity:0; }
-@keyframes fadeIn{ to{ opacity:1 } }
+
+.section-box:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 25px rgba(255, 215, 0, 0.4);
+}
+
+.section-box h2 {
+  font-family: 'Kaushan Script', cursive;
+  color: #FFD700;
+  margin-bottom: 0.6rem;
+  text-shadow: 0 0 10px #b96a00;
+}
+
+/* ==== OFFICERS ==== */
+.officer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.officer-card {
+  background: rgba(0, 0, 0, 0.4);
+  border: 2px solid rgba(255, 215, 0, 0.5);
+  border-radius: 12px;
+  padding: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.officer-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+}
+
+.officer-photo {
+  width: 100px;
+  height: 100px;
+  background-color: rgba(255, 215, 0, 0.1);
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+  margin: 0 auto 0.8rem;
+  border: 2px solid #FFD700;
+}
+
+.officer-card h3 {
+  margin: 0.3rem 0 0;
+  font-size: 1.2rem;
+  color: #FFD700;
+}
+
+.officer-card p {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+/* ==== FOOTER ==== */
+footer {
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+  color: #FFD700;
+  background: #8B0000;
+  border-top: 2px solid gold;
+}
+
+/* ==== ANIMATIONS ==== */
+@keyframes glowPulse {
+  0%, 100% { text-shadow: 0 0 12px #FFD700; }
+  50% { text-shadow: 0 0 25px #FFD700; }
+}
+
+.fade-in {
+  animation: fadeIn 1.3s ease forwards;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
