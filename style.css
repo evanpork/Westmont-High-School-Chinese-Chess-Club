@@ -1,0 +1,138 @@
+/* Base Layout */
+body {
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+  color: #fff;
+  background: linear-gradient(-45deg, #8B0000, #5A0000, #8B0000, #FFD700);
+  background-size: 400% 400%;
+  animation: silkFlow 30s ease infinite;
+  overflow-x: hidden;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  padding: 0.8rem 2rem;
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(6px);
+  z-index: 10;
+}
+
+.logo img {
+  height: 50px;
+}
+
+.nav-links a {
+  color: #FFD700;
+  text-decoration: none;
+  margin: 0 1rem;
+  transition: all 0.3s ease;
+}
+
+.nav-links a:hover, .nav-links a.active {
+  color: #fff;
+  text-shadow: 0 0 10px #FFD700;
+}
+
+/* Home */
+.home {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.cannon-logo {
+  height: 150px;
+  animation: glowPulse 4s ease-in-out infinite;
+}
+
+h1 {
+  font-family: 'Zhi Mang Xing', cursive;
+  font-size: 3rem;
+  margin: 1rem 0 0.5rem;
+  color: white;
+  text-shadow: 0 0 10px #FFD700;
+}
+
+.tagline {
+  font-size: 1.2rem;
+  color: #FFD700;
+}
+
+/* Content */
+.content {
+  padding: 7rem 2rem 2rem;
+  max-width: 900px;
+  margin: auto;
+  text-align: center;
+}
+
+.officer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.officer-card {
+  border: 2px solid #FFD700;
+  padding: 0.8rem;
+  border-radius: 10px;
+  background: rgba(255, 215, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.officer-card:hover {
+  transform: scale(1.05);
+}
+
+.calendar-container iframe {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+}
+
+.join-banner {
+  margin-top: 2rem;
+  padding: 1rem;
+  border: 1px solid #FFD700;
+  border-radius: 8px;
+  background: rgba(255, 215, 0, 0.1);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+  color: #FFD700;
+}
+
+/* Animations */
+@keyframes silkFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes glowPulse {
+  0%, 100% { filter: drop-shadow(0 0 6px #FFD700); }
+  50% { filter: drop-shadow(0 0 20px #FFD700); }
+}
+
+.fade-in {
+  animation: fadeIn 1.5s ease forwards;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
