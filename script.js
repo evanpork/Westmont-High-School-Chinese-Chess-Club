@@ -1,11 +1,11 @@
 // === Fade-out transition between internal pages ===
-document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('a').forEach(a => {
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll("a").forEach(a => {
     if (a.hostname === location.hostname && !a.target) {
-      a.addEventListener('click', e => {
+      a.addEventListener("click", e => {
         if (a.href !== location.href) {
           e.preventDefault();
-          document.body.classList.add('fade-out');
+          document.body.classList.add("fade-out");
           setTimeout(() => (location = a.href), 800);
         }
       });
@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-// === Inject fade-out CSS ===
+// === Inject fade-out style so it always works ===
 const style = document.createElement("style");
 style.innerHTML = `
   .fade-out {
@@ -23,9 +23,9 @@ style.innerHTML = `
 `;
 document.head.appendChild(style);
 
-// === Fade-in animation for floating gallery images ===
+// === Fade-in animation for any images with .fade-item ===
 document.addEventListener("DOMContentLoaded", () => {
-  const fadeItems = document.querySelectorAll(".fade-item");
+  const fadeItems = document.querySelectorAll(".fade-item, .logo-frame img");
 
   const observer = new IntersectionObserver(
     entries => {
