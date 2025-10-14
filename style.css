@@ -1,4 +1,4 @@
-/* ===== GLOBAL ===== */
+/* ==== GLOBAL ==== */
 html, body {
   height: 100%;
   margin: 0;
@@ -57,7 +57,7 @@ body {
   text-shadow: 0 0 10px #FFD700;
 }
 
-/* ==== HOME ==== */
+/* ==== HOME SECTION ==== */
 .home {
   flex: 1;
   display: flex;
@@ -65,7 +65,8 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding-top: 3rem;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
 }
 
 .logo-photo {
@@ -95,8 +96,8 @@ body {
 
 h1 {
   font-family: 'Kaushan Script', cursive;
-  font-size: 2.5rem;
-  margin: 0.5rem 0;
+  font-size: 2.6rem;
+  margin: 0.8rem 0 0.4rem;
   color: #fff;
   text-shadow: 0 0 8px #FFD700;
 }
@@ -106,171 +107,32 @@ h1 {
   font-size: 1.2rem;
 }
 
-/* ==== CONTENT ==== */
-.content {
-  flex: 1;
-  padding-top: 11rem;
-  padding-left: 2rem;
-  padding-right: 2rem;
-  padding-bottom: 6rem;
-  max-width: 950px;
-  margin: 0 auto;
-  text-align: center;
-  box-sizing: border-box;
-}
-
-.section-box {
-  background: rgba(0, 0, 0, 0.5);
-  border: 2px solid rgba(255, 215, 0, 0.6);
-  border-radius: 12px;
-  padding: 1.5rem;
-  margin: 2rem auto;
-  box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.section-box:hover {
-  transform: scale(1.02);
-  box-shadow: 0 0 25px rgba(255, 215, 0, 0.4);
-}
-
-.section-box h2 {
-  font-family: 'Kaushan Script', cursive;
-  color: #FFD700;
-  margin-bottom: 0.6rem;
-  text-shadow: 0 0 10px #b96a00;
-}
-
-/* ==== CALENDAR ==== */
-.calendar-wrapper {
-  overflow-x: auto;
-  text-align: center;
-}
-
-.calendar-embed {
-  width: 900px;
-  min-width: 900px;
-  height: 600px;
-  border: 2px solid rgba(255, 215, 0, 0.6);
-  border-radius: 12px;
-  box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
-  display: inline-block;
-}
-
-@media (max-width: 900px) {
-  .calendar-embed {
-    width: 100%;
-    min-width: unset;
-    height: 500px;
-  }
-}
-
-/* ==== OFFICERS ==== */
-.officer-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 1.5rem;
-  margin-top: 1.5rem;
-}
-
-.officer-card {
-  background: rgba(0, 0, 0, 0.4);
-  border: 2px solid rgba(255, 215, 0, 0.5);
-  border-radius: 12px;
-  padding: 1rem;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.officer-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
-}
-
-.officer-photo {
-  width: 100px;
-  height: 100px;
-  background-color: rgba(255, 215, 0, 0.1);
-  background-size: cover;
-  background-position: center;
-  border-radius: 50%;
-  margin: 0 auto 0.8rem;
-  border: 2px solid #FFD700;
-}
-
-.officer-card h3 {
-  margin: 0.3rem 0 0;
-  font-size: 1.2rem;
-  color: #FFD700;
-}
-
-.officer-card p {
-  margin: 0;
-  font-size: 0.95rem;
-}
-
-/* ==== CONTACT PAGE GOLD LINKS ==== */
-.contact-page .section-box a {
-  color: #FFD700;
-  text-decoration: none;
-  font-weight: 600;
-  transition: all 0.3s ease;
-}
-
-.contact-page .section-box a:hover {
-  color: #FFFFFF;
-  text-shadow: 0 0 10px #FFD700;
-}
-
-/* ==== GALLERY SECTION ==== */
-.gallery-section {
-  text-align: center;
-  margin-top: 4rem;
-  padding: 2rem;
-  background: rgba(0, 0, 0, 0.5);
-  border-top: 2px solid rgba(255, 215, 0, 0.4);
-  border-bottom: 2px solid rgba(255, 215, 0, 0.4);
-  box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
-}
-
-.gallery-section h2 {
-  font-family: 'Kaushan Script', cursive;
-  color: #FFD700;
-  font-size: 2rem;
-  text-shadow: 0 0 10px #b96a00;
-  margin-bottom: 0.5rem;
-}
-
-.gallery-text {
-  color: #fff;
-  font-size: 1rem;
-  margin-bottom: 1.5rem;
-}
-
-.gallery {
+/* ==== FLOATING IMAGE FRAME AROUND LOGO ==== */
+.logo-frame {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 1rem;
+  gap: 1.2rem;
+  margin-top: 3rem;
+  padding-bottom: 6rem;
 }
 
-.gallery img {
-  width: 260px;
-  height: 190px;
+.logo-frame img {
   object-fit: cover;
   border: 2px solid #FFD700;
   border-radius: 10px;
   box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.8s ease, transform 0.8s ease, box-shadow 0.3s ease;
+  transition: opacity 1s ease, transform 1s ease, box-shadow 0.3s ease;
 }
 
-.gallery img.visible {
+.logo-frame img.visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-.gallery img:hover {
+.logo-frame img:hover {
   transform: scale(1.05);
   box-shadow: 0 0 25px rgba(255, 215, 0, 0.5);
 }
@@ -321,13 +183,13 @@ footer {
     gap: 1rem;
   }
 
-  .content {
-    padding-top: 13rem;
-    padding-bottom: 7rem;
-  }
-
-  .gallery img {
+  .logo-frame img {
     width: 90%;
     height: auto;
+  }
+
+  .home {
+    padding-top: 9rem;
+    padding-bottom: 9rem;
   }
 }
