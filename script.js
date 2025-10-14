@@ -1,4 +1,4 @@
-// Fade transition between pages
+// === Fade-out transition between internal pages ===
 document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('a').forEach(a => {
     if (a.hostname === location.hostname && !a.target) {
@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-// Style for fade-out transition
+// === Inject fade-out CSS ===
 const style = document.createElement("style");
 style.innerHTML = `
   .fade-out {
@@ -23,9 +23,9 @@ style.innerHTML = `
 `;
 document.head.appendChild(style);
 
-// === Gallery fade-in animation ===
+// === Fade-in animation for floating gallery images ===
 document.addEventListener("DOMContentLoaded", () => {
-  const fadeItems = document.querySelectorAll(".gallery img");
+  const fadeItems = document.querySelectorAll(".fade-item");
 
   const observer = new IntersectionObserver(
     entries => {
