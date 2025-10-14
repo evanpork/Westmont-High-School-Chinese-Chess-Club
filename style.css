@@ -1,4 +1,4 @@
-/* ==== GLOBAL ===== */
+/* ==== GLOBAL ==== */
 html, body {
   height: 100%;
   margin: 0;
@@ -57,7 +57,7 @@ body {
   text-shadow: 0 0 10px #FFD700;
 }
 
-/* ==== HOME SECTION ==== */
+/* ==== HOME ==== */
 .home {
   flex: 1;
   display: flex;
@@ -107,7 +107,122 @@ h1 {
   font-size: 1.2rem;
 }
 
-/* ==== FLOATING IMAGE FRAME AROUND LOGO ==== */
+/* ==== CONTENT (USED BY OTHER PAGES) ==== */
+.content {
+  flex: 1;
+  padding-top: 11rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-bottom: 6rem;
+  max-width: 950px;
+  margin: 0 auto;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.section-box {
+  background: rgba(0, 0, 0, 0.5);
+  border: 2px solid rgba(255, 215, 0, 0.6);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 2rem auto;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.section-box:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 25px rgba(255, 215, 0, 0.4);
+}
+
+.section-box h2 {
+  font-family: 'Kaushan Script', cursive;
+  color: #FFD700;
+  margin-bottom: 0.6rem;
+  text-shadow: 0 0 10px #b96a00;
+}
+
+/* ==== CALENDAR ==== */
+.calendar-wrapper {
+  overflow-x: auto;
+  text-align: center;
+}
+
+.calendar-embed {
+  width: 900px;
+  min-width: 900px;
+  height: 600px;
+  border: 2px solid rgba(255, 215, 0, 0.6);
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
+  display: inline-block;
+}
+
+@media (max-width: 900px) {
+  .calendar-embed {
+    width: 100%;
+    min-width: unset;
+    height: 500px;
+  }
+}
+
+/* ==== OFFICERS ==== */
+.officer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.officer-card {
+  background: rgba(0, 0, 0, 0.4);
+  border: 2px solid rgba(255, 215, 0, 0.5);
+  border-radius: 12px;
+  padding: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.officer-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+}
+
+.officer-photo {
+  width: 100px;
+  height: 100px;
+  background-color: rgba(255, 215, 0, 0.1);
+  background-size: cover;
+  background-position: center;
+  border-radius: 50%;
+  margin: 0 auto 0.8rem;
+  border: 2px solid #FFD700;
+}
+
+.officer-card h3 {
+  margin: 0.3rem 0 0;
+  font-size: 1.2rem;
+  color: #FFD700;
+}
+
+.officer-card p {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+/* ==== CONTACT PAGE GOLD LINKS ==== */
+.contact-page .section-box a {
+  color: #FFD700;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.contact-page .section-box a:hover {
+  color: #FFFFFF;
+  text-shadow: 0 0 10px #FFD700;
+}
+
+/* ==== GALLERY / COLLAGE AROUND LOGO ==== */
 .logo-frame {
   display: flex;
   flex-wrap: wrap;
@@ -181,6 +296,11 @@ footer {
   .nav-links {
     flex-wrap: wrap;
     gap: 1rem;
+  }
+
+  .content {
+    padding-top: 13rem;
+    padding-bottom: 7rem;
   }
 
   .logo-frame img {
